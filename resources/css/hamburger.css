@@ -9,9 +9,22 @@
 
 .hamburger-lines.active div:nth-child(2) {
     opacity: 0;
-    /* Puede que no necesites transformar la barra del medio si solo se vuelve transparente */
+   
 }
 
 .hamburger-lines.active div:last-child {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
 }
+
+/* Estilo inicial del menú: oculto */
+.navigation {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* Estilo del menú cuando está desplegado */
+.navigation.open {
+    height: auto; /* O define una altura específica si lo prefieres */
+}
+
