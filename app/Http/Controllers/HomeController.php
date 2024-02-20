@@ -9,4 +9,9 @@ class HomeController extends Controller
     public function index(){
         return view('pages.welcome');
     }
+
+    public function login()
+    {
+        return view('auth.login');
+    }  
 }
