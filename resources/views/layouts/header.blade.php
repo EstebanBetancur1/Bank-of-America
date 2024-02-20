@@ -4,6 +4,7 @@
     </a>
     <nav class="flex gap-3  menu-toggle">
         <span class="  text-primary font-semibold"><a href="{{ route('login') }}">LOGIN </a></span>
+
         <div class=" bg-primary h-[24px] w-[2px]"></div>
         <div id="hamburger" class="  hamburger-lines cursor-pointer flex flex-col items-center justify-center ">
             <div class="bg-primary h-[3px] w-6 mb-[3px]"></div>
