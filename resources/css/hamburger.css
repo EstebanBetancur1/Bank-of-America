@@ -25,6 +25,6 @@
 
 /* Estilo del menú cuando está desplegado */
 .navigation.open {
-    height: auto; /* O define una altura específica si lo prefieres */
+    height: 500px; /* O define una altura específica si lo prefieres */
 }
 
