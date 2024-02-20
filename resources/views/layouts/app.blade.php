@@ -7,6 +7,7 @@
         <meta name="description" content="@yield('description')">
         @vite('resources/css/app.css')
         @vite('resources/css/hamburger.css')
+        @vite('resources/css/tarjetas.css')
     </head>
     <body>
         @include('layouts.header')
