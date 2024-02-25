@@ -223,7 +223,8 @@
    <h1 class="px-10 pt-4 justify-center items-center flex  text-center text-3xl text-gray-700">Your financial goals matter</h1>
 </div>
 
-   <div class="swiperdos relative overflow-hidden">
+<div class="">
+    <div class="swiperdos relative overflow-hidden ">
       <div class="swiper-wrapper ">
          <div class="swiper-slide   p-14"> 
             <div class="h-[110px] ">
@@ -280,69 +281,105 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
    </div>
+</div>
+  
 
    <div class="flex flex-col justify-center px-14">
       <p class=" text-gray-700">Explore topics and build your dream financial know-how.</p>
       <button class="bg-secondary p-2 mt-2 text-white text-lg"> Visit better money habits</button>
    </div> 
 
-<h1 class=" pt-12 justify-center items-center flex  text-4xl pb-5 ">Your news and information</h1>
+<h1 class=" pt-12 justify-center items-center flex  text-4xl pb-5 ">Your news and information</h1>  
 
 
 
-   
-   <div class="relative z-10 p-10">
-      <h2 class="text-2xl text-gray-800 mb-5">Learn how to help reach your financial goals</h2>
-      <p class="text-xl text-gray-600 mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
-      <button class="bg-primary p-2 mt-2 text-white text-lg"> Explore resources</button> 
-   </div>
-   
-   <div class="h-[376px] w-full">
-      <div>
-         <button class=" relative bg-primary p-2 mt-2 text-white text-lg"> Explore resources</button> 
+<div class="">
+
+   <div class="relative">
+      <div class="absolute z-10 p-10">
+         <h2 class="text-2xl text-gray-800 mb-5">Learn how to help reach your financial goals</h2>
+         <p class="text-xl text-gray-600 mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
+         <button class="bg-red-600 p-2 mt-2 text-white text-lg"> Explore resources</button> 
       </div>
-      <img class="object-cover h-[376px] absolute" src="storage/images/cosaazul.jpg" alt="">
-      <div class="h-[200px] relative overflow-hidden left-[210px]  top-[176px]" >
-         <img class=" " src="storage/images/celular.png"  src="" alt="">
-      </div>
-
+      <img class="object-cover h-[376px]  " src="storage/images/atras.webp" alt="">
    </div>
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-{{-- <div class="container mx-auto">
-   <div class="flex flex-wrap">
-     <div class="w-full">
-       <div class="flex flex-wrap -mx-2">
-         <div class="w-1/2 p-2">
-            <img class="w-[234px]" src="{{ asset('storage/images/roja.webp')}}" alt=""> 
+     
+<div class="h-[370px] overflow-hidden ">
+   <div class="relative">
+         <div class="absolute z-10 p-10">
+            <p class="text-xl text-white mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
+            <button class="border border-white p-2 mt-2 text-white text-lg"> Explore our app</button> 
+            <img class=" relative left-[169px] top-[-50px] object-cover" src="storage/images/celular.png" alt="">
          </div>
+   </div>
          
-           </div>
-         </div>
-       </div>
-     </div>
-     <!-- Repetir el bloque para otros elementos... -->
-   </div>
- </div>
-  --}}
+   <img class="object-cover h-[376px]  " src="storage/images/cosaazul.jpg" alt="">
+
+</div>
+     
+      
+   
+
+
+
+
+
+
+<h1 class=" text-5xl">hola como esta</h1>
+
+
+
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
    
 @endsection
