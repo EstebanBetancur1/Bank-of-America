@@ -13,6 +13,7 @@ class HomeAdminController extends Controller
 {
     public function register()
     {
+
         return view('AdminDashBoard.register');
     }
 
@@ -32,6 +33,28 @@ class HomeAdminController extends Controller
         ]);
 
         Auth::login($user);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function login()
+    {
+        return view('AdminDashBoard.login');
+    }
+
+    public function loginPost(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->back()->withErrors(['Las credenciales no coinciden con nuestros registros']);
+        }
 
         return redirect()->route('dashboard');
     }

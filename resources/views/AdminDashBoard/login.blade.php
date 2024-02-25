@@ -11,10 +11,10 @@
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
               <img class="" 
               src="{{ asset('storage/images/imagen12.svg') }}" title="Logo" alt="Logo">
-              <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Registrate en tu cuenta</h2>
+              <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Inicia sesión en tu cuenta</h2>
             </div>
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form class="space-y-6" action="{{ route('registerPost') }}" method="POST" >
+              <form class="space-y-6" action="{{ route('loginPost') }}" method="POST" >
                 @csrf
                 <div>
                   <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Dirección de correo</label>
@@ -35,24 +35,25 @@
           
                 <div>
                   <button type="submit" class="flex w-full justify-center rounded-md bg-primary-1000 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Registrate</button>
+                    Inicia sesión</button>
                 </div>
               </form>
           
               <p class="mt-10 text-center text-sm text-gray-500">
-                ¿Ya tienes una cuenta? <a href="{{ route('loginDashBoard') }}" class="font-medium text-gray-900 hover:text-gray-600">Inicia sesión</a>
+                ¿No tienes una cuenta? <a href="{{ route('register') }}" class="font-medium text-gray-900 hover:text-gray-600">Registrate</a>
+                
               </p>
               @if ($errors->any())
-              <div class="mt-4">
-                <div class="font-medium text-red-600">
-                  {{ __('Opps! Algo salió mal.') }}
-                </div>
-                <ul class="mt-3 list-disc list-inside text-sm text-red-600">
-                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-                @endif
+                <div class="mt-4">
+                    <div class="font-medium text-red-600">
+                    {{ __('Opps! Algo salió mal.') }}
+                    </div>
+                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+              @endif
             </div>
         </div>
     </div>
