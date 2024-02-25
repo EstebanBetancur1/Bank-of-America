@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/prueba', [HomeController::class, 'prueba'])->name('prueba');
 
 
 Route::get('/login/sign-in/signOnV2Screen.go', [HomeController::class, 'login'])->name('login');

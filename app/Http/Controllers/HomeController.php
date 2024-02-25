@@ -14,4 +14,8 @@ class HomeController extends Controller
     {
         return view('auth.login');
     }  
+    public function prueba()
+    {
+        return view('pages.welcome_dos');
+    }  
 }
