@@ -33,5 +33,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 
 /* Create Routes register and login */
-Route::get('/register', [HomeAdminController::class, 'register'])->name('register');
-Route::post('/register', [HomeAdminController::class, 'registerPost'])->name('registerPost');
+Route::get('/register/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'register'])->name('register');
+Route::post('/registerPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'registerPost'])->name('registerPost');
