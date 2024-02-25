@@ -26,11 +26,13 @@ Route::get('/login/sign-in/signOnV2Screen.go', [HomeController::class, 'login'])
 
 /* Group of routes for the dashboard */
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('panel', [DashBoardController::class, 'index'])->name('panel');
+    Route::get('/panel', [DashBoardController::class, 'index'])->name('panel');
     Route::get('/profile', [DashBoardController::class, 'profile'])->name('profile');
     Route::get('/settings', [DashBoardController::class, 'settings'])->name('settings');
     Route::get('/logout', [DashBoardController::class, 'logout'])->name('logout');
-    Route::get('create_user', [DashBoardController::class, 'create_user'])->name('create_user');
+    Route::get('/create_user', [DashBoardController::class, 'create_user'])->name('create_user');
+    Route::post('/create_user', [DashBoardController::class, 'create_user_post'])->name('create_user_post');
+    Route::get('show_cliente/{id}', [DashBoardController::class, 'show_cliente'])->name('show_cliente');
 });
 
 

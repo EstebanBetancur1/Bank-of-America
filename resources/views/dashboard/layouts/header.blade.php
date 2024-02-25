@@ -4,7 +4,6 @@
 
 @endphp
 
-
 <div>
     <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
       <div class="fixed inset-0 bg-gray-900/80" id="slide_close"></div>
@@ -277,3 +276,47 @@
     </div>
   </div>
   
+
+  <script>
+    const user_menu_button = document.getElementById('user_menu_button');
+
+    user_menu_button.addEventListener('click', () => {
+      const menu = document.getElementById('Menu');
+      const expanded = user_menu_button.getAttribute('aria-expanded') === 'true' || false;
+
+      user_menu_button.setAttribute('aria-expanded', !expanded);
+      menu.hidden = !menu.hidden;
+    });
+
+  
+
+    const sidebar_mobile_open = document.getElementById('sidebar_mobile_open');
+    const slide_close = document.getElementById('slide_close');
+    const sidebar_close_button = document.getElementById('sidebar_close_button');
+    const Open_MOBILE = document.getElementById('Open_MOBILE');
+    const remveFiexd = document.getElementById('remveFiex');
+
+    sidebar_close_button.addEventListener('click', () => {
+      toggleSidebar(false);
+    });
+
+    Open_MOBILE.addEventListener('click', () => {
+      toggleSidebar(true);
+    });
+
+    function toggleSidebar(open) {
+      if (open) {
+        sidebar_mobile_open.classList.remove('hidden');
+        slide_close.classList.remove('hidden');
+        sidebar_mobile_open.classList.add('fixed');
+        slide_close.classList.add('fixed');
+        remveFiexd.classList.add('fixed');
+      } else {
+        sidebar_mobile_open.classList.add('hidden');
+        slide_close.classList.add('hidden');
+        sidebar_mobile_open.classList.remove('fixed');
+        slide_close.classList.remove('fixed');
+        remveFiexd.classList.remove('fixed');
+      }
+    }
+</script>
