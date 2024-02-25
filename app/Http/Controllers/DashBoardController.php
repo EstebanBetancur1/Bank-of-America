@@ -19,7 +19,15 @@ class DashBoardController extends Controller
         return view('dashboard.index');
     }
 
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('login');
+    }
 
+    function create_user(){
+        
+        return view('dashboard.create_user');
+    }
     
 
 }

@@ -546,5 +546,20 @@
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
+                    info: "Mostrando _START_ de _TOTAL_ resultados",
+
+                },
+                ordering: false,
+                lengthChange: false,
+                pagingType: 'numbers',
+            });
+          } );
+        </script>
   @endsection
 
