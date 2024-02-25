@@ -223,7 +223,7 @@
    <h1 class="px-10 pt-4 justify-center items-center flex  text-center text-3xl text-gray-700">Your financial goals matter</h1>
 </div>
 
-   <div class="swiperdos relative">
+   <div class="swiperdos relative overflow-hidden">
       <div class="swiper-wrapper ">
          <div class="swiper-slide   p-14"> 
             <div class="h-[110px] ">
@@ -252,7 +252,7 @@
             </div>
          </div>
 
-         <div class="swiper-slide   p-14"> 
+         <div class="swiper-slide   p-14 "> 
             <div class="h-[110px] ">
                <img class=" object-cover w-full " src="storage/images/map.svg" >
             </div>
@@ -276,10 +276,6 @@
             </div>
          </div>
 
-         
-
-         
-
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -290,8 +286,27 @@
       <button class="bg-secondary p-2 mt-2 text-white text-lg"> Visit better money habits</button>
    </div> 
 
+<h1 class=" pt-12 justify-center items-center flex  text-4xl pb-5 ">Your news and information</h1>
+
+
 
    
+   <div class="relative z-10 p-10">
+      <h2 class="text-2xl text-gray-800 mb-5">Learn how to help reach your financial goals</h2>
+      <p class="text-xl text-gray-600 mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
+      <button class="bg-primary p-2 mt-2 text-white text-lg"> Explore resources</button> 
+   </div>
+   
+   <div class="h-[376px] w-full">
+      <div>
+         <button class=" relative bg-primary p-2 mt-2 text-white text-lg"> Explore resources</button> 
+      </div>
+      <img class="object-cover h-[376px] absolute" src="storage/images/cosaazul.jpg" alt="">
+      <div class="h-[200px] relative overflow-hidden left-[210px]  top-[176px]" >
+         <img class=" " src="storage/images/celular.png"  src="" alt="">
+      </div>
+
+   </div>
 
 
 
