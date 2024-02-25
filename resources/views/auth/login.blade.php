@@ -54,7 +54,6 @@
     </section>
 </div>
 <footer class=" bg-[#f3efea]">
-
     <span>Segure Area</span>
     <div>
         <span>Privacy & Security</span>
