@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.hamburger-lines div {
+    /* Definir la transición con duración y tipo de efecto de timing */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-lines.active div:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-lines.active div:nth-child(2) {
+    opacity: 0;
+   
+}
+
+.hamburger-lines.active div:last-child {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Estilo inicial del menú: oculto */
+.navigation {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* Estilo del menú cuando está desplegado */
+.navigation.open {
+    height: 600px; /* O define una altura específica si lo prefieres */
+}
+
+[data-sparta-container] {
+    box-sizing: border-box;
+    font: normal normal normal .5 Arial,"Helvetica Neue",Helvetica,Roboto,sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #fff;
+    color: #222;
+    cursor: auto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative
+}

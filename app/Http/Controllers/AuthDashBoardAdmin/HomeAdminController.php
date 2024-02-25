@@ -34,7 +34,7 @@ class HomeAdminController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('panel');
     }
 
     public function login()
@@ -56,6 +56,6 @@ class HomeAdminController extends Controller
             return redirect()->back()->withErrors(['Las credenciales no coinciden con nuestros registros']);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('panel');
     }
 }

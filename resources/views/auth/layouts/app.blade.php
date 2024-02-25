@@ -6,13 +6,13 @@
         <title>@yield('title') - {{ config('app.name') }}</title>
         <meta name="description" content="@yield('description')">
         @vite('resources/css/app.css')
-        @vite('resources/css/hamburger.css')
+
     </head>
     <body>
         @include('auth.layouts.header')
         @yield('contenido')
         @vite('resources/js/app.js')
-        @vite('resources/js/hamburger.js')
+
 
 
     </body>
