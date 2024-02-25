@@ -3,13 +3,13 @@
         <img class="w-[234px]" src="{{ asset('storage/images/imagen12.svg') }}" alt="">
     </a>
     <nav class="flex gap-3  menu-toggle">
-        <span class="  text-primary font-semibold"><a href="{{ route('login') }}">LOGIN </a></span>
+        <span class="  text-primary-1000 font-semibold"><a href="{{ route('login') }}">LOGIN </a></span>
 
-        <div class=" bg-primary h-[24px] w-[2px]"></div>
+        <div class=" bg-primary-1000 h-[24px] w-[2px]"></div>
         <div id="hamburger" class="  hamburger-lines cursor-pointer flex flex-col items-center justify-center ">
-            <div class="bg-primary h-[3px] w-6 mb-[3px]"></div>
-            <div class="bg-primary h-[3px] w-6 mb-[3px]"></div>
-            <div class="bg-primary h-[3px] w-6 mb-[3px]"></div>
+            <div class="bg-primary-1000 h-[3px] w-6 mb-[3px]"></div>
+            <div class="bg-primary-1000 h-[3px] w-6 mb-[3px]"></div>
+            <div class="bg-primary-1000 h-[3px] w-6 mb-[3px]"></div>
         </div> 
     </nav>
 </div>
