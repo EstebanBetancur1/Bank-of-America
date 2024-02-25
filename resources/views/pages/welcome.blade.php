@@ -289,7 +289,7 @@
       <button class="bg-secondary p-2 mt-2 text-white text-lg"> Visit better money habits</button>
    </div> 
 
-<h1 class=" pt-12 justify-center items-center flex  text-4xl pb-5 ">Your news and information</h1>  
+<h1 class=" pt-12 justify-center items-center flex  text-3xl pb-5 ">Your news and information</h1>  
 
 <div class="relative">
    <div class="absolute z-10 p-10">
@@ -317,7 +317,7 @@
    <img class="  object-cover" src="storage/images/rows.jpg" alt="">
 </div>
 
-<footer class="  bg-[#012169] ">
+<footer class=" mt-10 bg-[#012169] ">
    
       <div class="text-sm flex gap-5 P-5 justify-center">
          <ul class="text-xs flex text-white gap-2">

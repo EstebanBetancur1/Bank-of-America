@@ -54,7 +54,7 @@
     </section>
 </div>
 <footer class=" bg-[#f3efea]">
-    <a href="{{ route('dashboard') }}">DASHBOARD</a>
+   
     <span>Segure Area</span>
     <div>
         <span>Privacy & Security</span>
