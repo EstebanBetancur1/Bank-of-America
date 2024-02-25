@@ -310,66 +310,57 @@
    </div>   
    <img class="object-cover h-[376px]  " src="storage/images/cosaazul.jpg" alt="">
 </div>
-     
-      
+
+<div class=" text-sm justify-center flex flex-col p-3 bg-[#f2f2f2]">
+   <p class="text-secondary underline">Online Banking Service Agreement</p>
+   <p class="text-gray-600">Investing in securities involves risks, and there is always the potential of losing money when you invest in securities. You should review any planned financial transactions that may have tax or legal implications with your personal tax or legal advisor.<br><br>Securities products are provided by Merrill Lynch, Pierce, Fenner &amp; Smith Incorporated (also referred to as "MLPF&amp;S", or "Merrill"), a registered broker-dealer, registered investment adviser, <a id="footer_sipc2" href="https://www.sipc.org/" class="spa-ui-layer-link spa-fn spa-ui-layer-modal-link" data-options="{&quot;interstitialType&quot;:&quot;leaving-site&quot;,&quot;interstitialBranding&quot;:&quot;default&quot;,&quot;targetAction&quot;:&quot;new-tab&quot;}" data-aaclickevent="true">Member SIPC<span class="spa-ada-text ada-hidden">&nbsp;layer</span></a>, and a wholly-owned subsidiary of Bank of America Corporation. MLPF&amp;S makes available certain investment products sponsored, managed, distributed or provided by companies that are affiliates of Bank of America Corporation.<br><br>Bank of America Private Bank is a division of Bank of America, N.A., Member FDIC and a wholly owned subsidiary of Bank of America Corporation. Trust and fiduciary services are provided by Bank of America, N.A. and U.S. Trust Company of Delaware. Both are indirect subsidiaries of Bank of America Corporation.<br><br>Insurance Products are offered through Merrill Lynch Life Agency Inc. (MLLA) and/or Banc of America Insurance Services, Inc., both of which are licensed insurance agencies and wholly-owned subsidiaries of Bank of America Corporation.<br><br>Banking, credit card, automobile loans, mortgage and home equity products are provided by Bank of America, N.A. and affiliated banks, Members FDIC and wholly owned subsidiaries of Bank of America Corporation. Credit and collateral are subject to approval. Terms and conditions apply. This is not a commitment to lend. Programs, rates, terms and conditions are subject to change without notice.</p>
+   <img class="  object-cover" src="storage/images/rows.jpg" alt="">
+</div>
+
+<footer class="  bg-[#012169] ">
    
-
-
-
-
-
-
-<h1 class=" text-5xl">hola como esta</h1>
-
-
-
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <div class="text-sm flex gap-5 P-5 justify-center">
+         <ul class="text-xs flex text-white gap-2">
+            <li class="">location</li>
+            <li class="">|</li>
+            <li class="">contact us</li>
+            <li class="">|</li>
+            <li class="">help and suport</li>
+         </ul>
+      </div>
+      <div class="text-sm flex gap-5 P-5 justify-center">
+         <ul class="text-xs flex text-white gap-2">
+            <li class="">Browse with specialist</li>
+            <li class="">|</li>
+            <li class="">accesiblr banking</li>
+            <li class="">|</li>
+            <li class="">privacity</li>
+         </ul>
+      </div>
+      <div class="text-sm flex gap-5 P-5 justify-center">
+         <ul class="text-xs flex text-white gap-2">
+            <li class="">Children´s privacity</li>
+            <li class="">|</li>
+            <li class="">Segurity</li>
+         </ul>
+      </div>
+      <div class="text-sm flex gap-5 P-5 justify-center">
+         <ul class="text-xs flex text-white gap-2">
+            <li class="">Online banking servicr Agreement</li>
+            <li class="">|</li>
+            <li class=" underline-offset-8">adversing Practives</li>
+         </ul>
+      </div>
+      <div class="text-sm flex gap-5 P-5 justify-center">
+         <ul class="text-xs flex text-white gap-2">
+            <li class="">Your practices choices</li>
+            <li class="">|</li>
+            <li class="">Site map</li>
+            <li class="">|</li>
+            <li class="">Careers</li>
+         </ul>
+      </div>
+</footer>
 
 
 
