@@ -291,31 +291,24 @@
 
 <h1 class=" pt-12 justify-center items-center flex  text-4xl pb-5 ">Your news and information</h1>  
 
-
-
-<div class="">
-
-   <div class="relative">
-      <div class="absolute z-10 p-10">
-         <h2 class="text-2xl text-gray-800 mb-5">Learn how to help reach your financial goals</h2>
-         <p class="text-xl text-gray-600 mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
-         <button class="bg-red-600 p-2 mt-2 text-white text-lg"> Explore resources</button> 
-      </div>
-      <img class="object-cover h-[376px]  " src="storage/images/atras.webp" alt="">
+<div class="relative">
+   <div class="absolute z-10 p-10">
+      <h2 class="text-2xl text-gray-800 mb-5">Learn how to help reach your financial goals</h2>
+      <p class="text-xl text-gray-600 mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
+      <button class="bg-red-600 p-2 mt-2 text-white text-lg"> Explore resources</button> 
    </div>
+      <img class="object-cover h-[376px]  " src="storage/images/atras.webp" alt="">
+</div>
 
-     
 <div class="h-[370px] overflow-hidden ">
    <div class="relative">
-         <div class="absolute z-10 p-10">
-            <p class="text-xl text-white mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
-            <button class="border border-white p-2 mt-2 text-white text-lg"> Explore our app</button> 
-            <img class=" relative left-[169px] top-[-50px] object-cover" src="storage/images/celular.png" alt="">
-         </div>
-   </div>
-         
+      <div class="absolute z-10 p-10">
+         <p class="text-xl text-white mb-5">Get customized guidance and easy‑to‑use digital tools to help you make the most of your finances.</p>
+         <button class="border border-white p-2 mt-2 text-white text-lg"> Explore our app</button> 
+         <img class=" relative left-[169px] top-[-50px] object-cover" src="storage/images/celular.png" alt="">
+      </div>
+   </div>   
    <img class="object-cover h-[376px]  " src="storage/images/cosaazul.jpg" alt="">
-
 </div>
      
       
