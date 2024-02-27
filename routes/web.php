@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InternalclientController;
 
 use App\Http\Controllers\AuthDashBoardAdmin\HomeAdminController;
 
@@ -36,9 +37,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 
 
-
 /* Create Routes register and login */
 Route::get('/register/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'register'])->name('register');
 Route::post('/registerPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'registerPost'])->name('registerPost');
 Route::get('/loginDashBoard/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'login'])->name('loginDashBoard');
 Route::post('/loginPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'loginPost'])->name('loginPost');
+
+
+/*Routes Internal Client Service */
+
+Route::group(['prefix' => 'secure'], function () {
+    Route::get('/', [InternalclientController::class, 'dashboard'])->name('internalclient');
+    Route::get('/account', [InternalclientController::class, 'accounts'])->name('accounts');
+});

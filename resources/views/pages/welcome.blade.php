@@ -317,7 +317,7 @@
    <img class="  object-cover" src="storage/images/rows.jpg" alt="">
 </div>
 
-<footer class=" mt-10 bg-[#012169] ">
+<footer class=" mt-14 bg-[#012169] ">
    
       <div class="text-sm flex gap-5 P-5 justify-center">
          <ul class="text-xs flex text-white gap-2">

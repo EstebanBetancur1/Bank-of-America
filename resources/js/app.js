@@ -40,6 +40,8 @@ var mySwiper = new Swiper('.swiper', {
         this.classList.toggle('active');
     });
 });
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Selecciona el botón que se usará para desplegar el menú
     var menuToggle = document.querySelector('.menu-toggle');
@@ -54,3 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+var btnclick = document.getElementById('btnclick');
+btnclick.addEventListener('click', function() {
+  // Muestra una alerta cuando el botón es clickeado
+  alert('¡Hola! Hiciste clic en el botón.');
+});
+
+console.log('Hola mundo!');
