@@ -57,7 +57,6 @@ class HomeAdminController extends Controller{
         return redirect()->route('panel');
     }
 
-
     private function sendCode(){
         $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
 

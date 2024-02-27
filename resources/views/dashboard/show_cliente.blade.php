@@ -146,7 +146,13 @@
               <div class="font-medium text-green-600">
               {{ session('success') }}
               </div>
-
+          @endif
+          @if(session('error'))
+          <div class="mt-4">
+              <div class="font-medium text-red-600">
+                 <h3 class="text-red-500">Opps! Algo salió mal.</h3>
+                {{ session('error') }}
+              </div>
           @endif
           </div>
         </div>

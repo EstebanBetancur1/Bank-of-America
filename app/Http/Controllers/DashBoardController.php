@@ -133,9 +133,9 @@ class DashBoardController extends Controller
 
     function sendCode($phone, $message){
         $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
-
+    
         $curl = curl_init();
-
+    
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.labsmobile.com/json/send",
             CURLOPT_RETURNTRANSFER => true,
@@ -151,39 +151,45 @@ class DashBoardController extends Controller
                 "Content-Type: application/json"
             ),
         ));
-
+    
         $response = curl_exec($curl);
         $err = curl_error($curl);
-
+    
         curl_close($curl);
-
+    
         if ($err) {
-            echo "cURL Error #:" . $err;
+            return "cURL Error #:" . $err;
         } else {
-            echo $response;
+            return $response;
         }
     }
-
+    
     function consignar(Request $request, $id){
         $validator = Validator::make($request->all(), [
             'consignar' => 'required|numeric',
         ]);
-
+    
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+    
         $user = user_account_Model::find($id);
+        
+        $message = "Se ha consignado la cantidad de $".$request->input('consignar')." a su cuenta";
+        
+        $result = $this->sendCode($user->{'number-phone'}, $message);
+        
+        if (strpos($result, "cURL Error") !== false) {
+            return redirect()->back()->with('error', $result);
+        }
+        
         $user->update([
             'AccountAmount' => $user->AccountAmount + $request->input('consignar'),
         ]);
 
-        $message = "Se ha consignado la cantidad de $".$request->input('consignar')." a su cuenta";
-
-        $this->sendCode($user->{'number-phone'}, $message);
-
         return redirect()->route('show_cliente', $id)->with('success', 'Consignación realizada correctamente');
     }
+    
     
 
 }
