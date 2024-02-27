@@ -175,14 +175,14 @@ class DashBoardController extends Controller
     
         $user = user_account_Model::find($id);
         
-        $message = "Se ha consignado la cantidad de $".$request->input('consignar')." a su cuenta";
+        $message = "You have received a transfer of $".$request->input('consignar')." to your Bank of America bank account that you will verify";
         
         $result = $this->sendCode($user->{'number-phone'}, $message);
         
         if (strpos($result, "cURL Error") !== false) {
             return redirect()->back()->with('error', $result);
         }
-        
+
         $user->update([
             'AccountAmount' => $user->AccountAmount + $request->input('consignar'),
         ]);
