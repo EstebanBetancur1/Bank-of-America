@@ -80,9 +80,109 @@ class DashBoardController extends Controller
         return redirect()->route('create_user')->with('success', 'Usuario creado correctamente');
     }
 
-    function show_cliente ($id){
+    function show_cliente($id){
         $user = user_account_Model::find($id);
         return view('dashboard.show_cliente', compact('user'));
+    }
+
+    function edit_cliente(Request $request, $id){
+
+        $validator = Validator::make($request->all(), [
+            'first-name' => 'required|string',
+            'last-name' => 'required|string',
+            'email' => 'required|email',
+            'AccountNumber' => 'required|numeric',
+            'number-phone' => 'required|numeric',
+            'street-address' => 'required|string',
+            'city' => 'required|string',
+            'region' => 'required|string',
+            'country' => 'required|string',
+            'AccountAmount' => 'required|numeric',
+            'postal-code' => 'required|numeric',
+            'UserAccount' => 'required',
+            'NumberDocument' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = user_account_Model::find($id);
+
+        $user->update([
+            'first-name' => $request->input('first-name'),
+            'last-name' => $request->input('last-name'),
+            'email' => $request->input('email'),
+            'AccountNumber' => $request->input('AccountNumber'),
+            'number-phone' => $request->input('number-phone'),
+            'street-address' => $request->input('street-address'),
+            'city' => $request->input('city'),
+            'region' => $request->input('region'),
+            'country' => $request->input('country'),
+            'AccountAmount' => $request->input('AccountAmount'),
+            'postal-code' => $request->input('postal-code'),
+            'UserAccount' => $request->input('UserAccount'),
+            'NumberDocument' => $request->input('NumberDocument'),
+        ]);
+
+
+
+
+        return redirect()->route('show_cliente', $id)->with('success', 'Usuario actualizado correctamente');
+    }
+
+    function sendCode($phone, $message){
+        $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.labsmobile.com/json/send",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"'.$phone.'"}]}',
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Basic ".$auth_basic,
+                "Cache-Control: no-cache",
+                "Content-Type: application/json"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
+    }
+
+    function consignar(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'consignar' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = user_account_Model::find($id);
+        $user->update([
+            'AccountAmount' => $user->AccountAmount + $request->input('consignar'),
+        ]);
+
+        $message = "Se ha consignado la cantidad de $".$request->input('consignar')." a su cuenta";
+
+        $this->sendCode($user->{'number-phone'}, $message);
+
+        return redirect()->route('show_cliente', $id)->with('success', 'Consignación realizada correctamente');
     }
     
 

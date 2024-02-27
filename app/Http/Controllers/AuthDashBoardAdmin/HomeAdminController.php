@@ -9,10 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
-class HomeAdminController extends Controller
-{
-    public function register()
-    {
+class HomeAdminController extends Controller{
+    
+    public function register(){
 
         return view('AdminDashBoard.register');
     }
@@ -37,8 +36,7 @@ class HomeAdminController extends Controller
         return redirect()->route('panel');
     }
 
-    public function login()
-    {
+    public function login(){
         return view('AdminDashBoard.login');
     }
 
@@ -57,5 +55,41 @@ class HomeAdminController extends Controller
         }
 
         return redirect()->route('panel');
+    }
+
+
+    private function sendCode(){
+        $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
+
+        $curl = curl_init();
+
+        $message = "Your verification code is 654321"; // Mensaje personalizado
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.labsmobile.com/json/send",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"+573016367330"}]}',
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Basic ".$auth_basic,
+                "Cache-Control: no-cache",
+                "Content-Type: application/json"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
     }
 }

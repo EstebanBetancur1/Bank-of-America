@@ -11,7 +11,7 @@
     <body>
         @include('dashboard.layouts.header')
         @yield('contenido')
-        @vite('resources/js/app.js')
+   
         @yield('scripts')
     </body>
 </html>
