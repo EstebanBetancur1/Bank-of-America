@@ -21,7 +21,7 @@
             <th>Correo</th>
             <th>Cuenta</th>
             <th>Saldo</th>
-            <th>Ver más</th>
+            <th>Más opciones</th>
           </tr>
       </thead>
       <tbody>
@@ -31,7 +31,8 @@
             <td>{{ $cliente->email }}</td>
             <td>{{ $cliente->AccountNumber }}</td>
             <td>USD {{ $cliente->AccountAmount }}</td>
-            <td><a href="{{ route('show_cliente', $cliente->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</a></td>
+            <td><a href="{{ route('show_cliente', $cliente->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</a>
+            </td>
           </tr>
         @endforeach
           
@@ -42,7 +43,7 @@
             <th>Correo</th>
             <th>Cuenta</th>
             <th>Saldo</th>
-            <th>Ver más</th>
+            <th>Más opciones</th>
           </tr>
       </tfoot>
     </table>
