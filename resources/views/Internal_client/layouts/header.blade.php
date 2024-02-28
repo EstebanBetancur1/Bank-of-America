@@ -1,4 +1,4 @@
-<div class="flex justify-between p-5">
+<div class="flex justify-between p-5  bg-white">
    
     <nav class="flex justify-between gap-3  menu-toggle">
         <div id="hamburger" class="  hamburger-lines cursor-pointer flex flex-col items-center justify-center ">
@@ -45,16 +45,14 @@
     </ul>
 </div>
    
-<div class=" mt-2 bg-white border-b border-gray-400 shadow-xl flex jus">
-    
-        <a class=" focus:text-red-600 focus:border-b border-red-600 cursor-pointer text-xl w-[200px]" href="{{ route('accounts') }}">
-            <p>Accounts</p>
-        </a>
-    
-    <button class=" focus:text-red-600 focus:border-b border-red-600 cursor-pointer text-xl w-[200px]"> 
-        <a class="flex  flex-col items-center" href="{{ route('internalclient') }}">
-            <p>Dashboard</p>
-        </a>
-    </button>
+
+<div class=" bg-white border-b border-gray-400 shadow-xl flex">
+    <a id="tabAccounts" class="tab text-xl w-[200px] flex justify-center cursor-pointer border-b  hover:border-red-600 hover:text-red-600" href="{{ route('accounts') }}">
+      <p>Accounts</p>
+    </a>
+    <a id="tabDashboard" class="tab text-xl w-[200px] flex justify-center cursor-pointer border-b  hover:border-red-600 hover:text-red-600" href="{{ route('internalclient') }}">
+      <p>Dashboard</p>
+    </a>    
 </div>
-    
+  
+  

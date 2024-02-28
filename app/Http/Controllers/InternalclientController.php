@@ -14,4 +14,8 @@ class InternalclientController extends Controller
     {
         return view('Internal_client.accounts');
     }
+    public function menufijo()
+    {
+        return view('Internal_client.menufijo');
+    }
 }

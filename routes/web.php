@@ -49,4 +49,5 @@ Route::post('/loginPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class,
 Route::group(['prefix' => 'secure'], function () {
     Route::get('/', [InternalclientController::class, 'dashboard'])->name('internalclient');
     Route::get('/account', [InternalclientController::class, 'accounts'])->name('accounts');
+    Route::get('/menufijo', [InternalclientController::class, 'menufijo'])->name('menufijo');
 });

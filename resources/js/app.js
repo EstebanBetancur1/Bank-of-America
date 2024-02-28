@@ -56,10 +56,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-var btnclick = document.getElementById('btnclick');
-btnclick.addEventListener('click', function() {
-  // Muestra una alerta cuando el botón es clickeado
-  alert('¡Hola! Hiciste clic en el botón.');
-});
+//
 
-console.log('Hola mundo!');
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Al cargar la página, establece la pestaña activa basada en localStorage
+  const savedTab = localStorage.getItem('activeTab');
+  if (savedTab) {
+    const tabToActivate = document.querySelector(`#${savedTab}`);
+    if (tabToActivate) {
+      setActiveTab(tabToActivate);
+    }
+  }
+
+  // Función para establecer la pestaña activa
+  function setActiveTab(tabElement) {
+    // Primero, elimina la clase activa de todas las pestañas
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('border-b','border-red-600', 'text-red-600');
+    });
+
+    // Luego, añade la clase activa a la pestaña clickeada
+    tabElement.classList.add('border-b','border-red-600', 'text-red-600');
+  }
+
+  // Añade un escuchador de eventos a todas las pestañas
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Guarda la pestaña activa en localStorage
+      localStorage.setItem('activeTab', tab.getAttribute('id'));
+      setActiveTab(tab);
+    });
+  });
+});
