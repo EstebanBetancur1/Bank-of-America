@@ -15,7 +15,7 @@
     </a>
         <a class="flex  flex-col items-center" href="{{ route('home') }}"><img class="w-[24px]" src="{{ asset('storage/images/inbox.svg') }}" alt=""><p class="text-xs">inbox</p></a>
         <a class="flex  flex-col items-center" href="{{ route('home') }}"><img class="w-[24px]" src="{{ asset('storage/images/carrito.svg') }}" alt=""><p class="text-xs">products</p></a>
-        <a class="flex  flex-col items-center" href="{{ route('home') }}"><img class="w-[24px]" src="{{ asset('storage/images/login.svg') }}" alt=""><p class="text-xs">Sigh out</p></a>
+        <a class="flex  flex-col items-center" href="{{ route('logout') }}"><img class="w-[24px]" src="{{ asset('storage/images/login.svg') }}" alt=""><p class="text-xs">Sigh out</p></a>
             
         
 

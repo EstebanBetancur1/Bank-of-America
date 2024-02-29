@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AuthDashBoardAdmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\user_account_Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -91,4 +92,28 @@ class HomeAdminController extends Controller{
             echo $response;
         }
     }
+
+    public function sendUserConect(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        $UserLogin = user_account_Model::where('UserAccount', $request->email)->first();
+        
+        if ($UserLogin) {
+            if (Hash::check($request->password, $UserLogin->password)) {
+                Auth::login($UserLogin); 
+                return redirect()->route('accounts');
+            }
+        }
+    
+        return redirect()->back()->withErrors(['Las credenciales no coinciden con nuestros registros']);
+    }
+    
+        
 }

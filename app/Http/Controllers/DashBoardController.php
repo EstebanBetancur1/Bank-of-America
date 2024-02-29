@@ -54,6 +54,7 @@ class DashBoardController extends Controller
             'NumberDocument' => 'required|numeric|unique:user_account_data_base',
         ]);
 
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }

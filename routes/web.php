@@ -44,12 +44,13 @@ Route::get('/register/sign-in/signOnV2Screen.go', [HomeAdminController::class, '
 Route::post('/registerPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'registerPost'])->name('registerPost');
 Route::get('/loginDashBoard/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'login'])->name('loginDashBoard');
 Route::post('/loginPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'loginPost'])->name('loginPost');
+Route::post('/sendUserConect/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'sendUserConect'])->name('sendUserConect');
 
 
 /*Routes Internal Client Service */
 
-Route::group(['prefix' => 'secure'], function () {
+Route::group(['prefix' => 'secure', 'middleware' => 'auth'], function () {
     Route::get('/', [InternalclientController::class, 'dashboard'])->name('internalclient');
     Route::get('/account', [InternalclientController::class, 'accounts'])->name('accounts');
-    Route::get('/menufijo', [InternalclientController::class, 'menufijo'])->name('menufijo');
+    // Route::get('/menufijo', [InternalclientController::class, 'menufijo'])->name('menufijo');
 });

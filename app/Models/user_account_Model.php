@@ -1,13 +1,14 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class user_account_Model extends Model
+class user_account_Model extends Model implements AuthenticatableContract
 {
-    use HasFactory;
+    use HasFactory, Authenticatable;
 
     protected $table = 'user_account_data_base';
 
@@ -28,5 +29,5 @@ class user_account_Model extends Model
         'password',
     ];
 
-    
+
 }

@@ -7,12 +7,13 @@
 @section('contenido')
 <div class="flex px-3 gap-5">
     <section class="w-11/12 mx-auto">
-        <form action="" class="mt-5">
+        <form action="{{ route('sendUserConect') }}" class="mt-5" method="POST">
+            @csrf
             <div class="flex flex-col gap-2">
                 <label for="email">User ID</label>
                 <input  type="text" id="email" name="email" required class="border block">
                 <div class="flex items-center gap-2">
-                    <input type="checkbox">
+                    <input type="checkbox" name="saveUser" id="saveUser" required>
                     <span>
                         Save this User ID
                     </span>
@@ -33,6 +34,17 @@
             <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded mt-5">
                 Log In
               </button>
+              @if ($errors->any())
+                <div class="mt-4">
+                    <div class="font-medium text-red-600">
+                    {{ __('Opps! Algo salió mal.') }}
+                    </div>
+                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+              @endif
         </form>
     </section>
 

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'custom',
         'passwords' => 'users',
     ],
 
@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'custom' => [
+            'driver' => 'session',
+            'provider' => 'custom_users',
+        ],
+
     ],
 
     /*
@@ -69,6 +74,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'custom_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\user_account_Model::class,
+        ],
     ],
 
     /*
@@ -97,7 +106,11 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------

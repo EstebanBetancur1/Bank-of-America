@@ -5,9 +5,14 @@
 @section('contenido')
 <body class="bg-[#f7f7f7]">
 
-    <div class=" mt-5  bg-white h-[500px] flex flex-col justify-center shadow-lg mx-5 rounded-t-lg  rounded-b-lg border-b">
+    <?php 
+        $user = Auth::user();
+        $user->name;
+    ?>
+
+    <div class=" mt-5 py-5  bg-white h-[300px] flex flex-col  shadow-lg mx-5 rounded-t-lg  rounded-b-lg border-b">
         <div class="px-5 border-b border-[#c9c2c2]">
-            <h1 class="text-3xl font-semibold  ">Hello, jane</h1>
+            <h1 class="text-3xl font-semibold  ">Hello, {{ $user->{'first-name'} }}</h1>
             <span class=" text-sm font-semibold">Preferred Roward platium Member</span>
         </div>
         <div class="border-b border-[#c9c2c2] pt-2 px-5 flex items-center gap-2 ">
@@ -29,7 +34,7 @@
         <div class="border-b border-[#c9c2c2] pt-2 mx-5 flex items-center  justify-between ">
             <div class="mb-2">
                 <p class="text-[#a6a2a2] text-sm ">My Checking</p>
-                <p class="text-2xl font-bold flex gap-1">$4,000.00</p>
+                <p class="text-2xl font-bold flex gap-1">${{ number_format($user->AccountAmount, 0, '.', ',') }}</p>
             </div>
             <div class="bg-gray-200 rounded-full px-2 "><p class="font-bold text-blue-950">VIEW</p></div>
         </div>
@@ -37,7 +42,7 @@
         <div class="border-b border-[#c9c2c2] pt-2 px-5 flex  justify-between items-center gap-2  ">
             <div class="mb-2">
                 <p class="text-[#a6a2a2] text-sm ">My Cash Rewards Card</p>
-                <p class="text-2xl font-bold flex gap-1">$2,543.21</p>
+                <p class="text-2xl font-bold flex gap-1">$0</p>
             </div>
             <div class="bg-gray-200 rounded-full px-2 "><p class="font-bold text-blue-950">VIEW</p></div>
 
