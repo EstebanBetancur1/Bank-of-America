@@ -103,13 +103,8 @@ class HomeAdminController extends Controller{
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
-        $UserLogin = user_account_Model::where('UserAccount', $request->email)->first();
-        
-        if ($UserLogin) {
-            if (Hash::check($request->password, $UserLogin->password)) {
-                Auth::login($UserLogin); 
-                return redirect()->route('accounts');
-            }
+        if (Auth::guard('account')->attempt(['UserAccount' => $request->email, 'password' => $request->password])) {
+            return redirect()->route('accounts');
         }
     
         return redirect()->back()->withErrors(['Las credenciales no coinciden con nuestros registros']);

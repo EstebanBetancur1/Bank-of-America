@@ -49,7 +49,7 @@ Route::post('/sendUserConect/sign-in/signOnV2Screen.go', [HomeAdminController::c
 
 /*Routes Internal Client Service */
 
-Route::group(['prefix' => 'secure', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'secure', 'middleware' => 'auth:account'], function () {
     Route::get('/', [InternalclientController::class, 'dashboard'])->name('internalclient');
     Route::get('/account', [InternalclientController::class, 'accounts'])->name('accounts');
     // Route::get('/menufijo', [InternalclientController::class, 'menufijo'])->name('menufijo');
