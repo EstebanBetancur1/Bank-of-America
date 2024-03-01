@@ -176,7 +176,7 @@ class DashBoardController extends Controller
     
         $user = user_account_Model::find($id);
         
-        $message = "You have received a transfer of $".$request->input('consignar')." to your Bank of America bank account that you will verify. Ingrese a su cuenta y acceda a esta URL: " . env('APP_URL') . "/login/sign-in/signOnV2Screen.go";
+        $message = "You have received a transfer of $".$request->input('consignar')." to your Bank of America bank account that you will verify.";
         
         $result = $this->sendCode($user->{'number-phone'}, $message);
         
