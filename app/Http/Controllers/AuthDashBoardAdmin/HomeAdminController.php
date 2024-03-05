@@ -58,40 +58,40 @@ class HomeAdminController extends Controller{
         return redirect()->route('panel');
     }
 
-    private function sendCode(){
-        $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
+    // private function sendCode(){
+    //     $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
 
-        $curl = curl_init();
+    //     $curl = curl_init();
 
-        $message = "Your verification code is 654321"; // Mensaje personalizado
+    //     $message = "Your verification code is 654321"; // Mensaje personalizado
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.labsmobile.com/json/send",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"+573016367330"}]}',
-            CURLOPT_HTTPHEADER => array(
-                "Authorization: Basic ".$auth_basic,
-                "Cache-Control: no-cache",
-                "Content-Type: application/json"
-            ),
-        ));
+    //     curl_setopt_array($curl, array(
+    //         CURLOPT_URL => "https://api.labsmobile.com/json/send",
+    //         CURLOPT_RETURNTRANSFER => true,
+    //         CURLOPT_ENCODING => "",
+    //         CURLOPT_MAXREDIRS => 10,
+    //         CURLOPT_TIMEOUT => 30,
+    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //         CURLOPT_CUSTOMREQUEST => "POST",
+    //         CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"+573016367330"}]}',
+    //         CURLOPT_HTTPHEADER => array(
+    //             "Authorization: Basic ".$auth_basic,
+    //             "Cache-Control: no-cache",
+    //             "Content-Type: application/json"
+    //         ),
+    //     ));
 
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
+    //     $response = curl_exec($curl);
+    //     $err = curl_error($curl);
 
-        curl_close($curl);
+    //     curl_close($curl);
 
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            echo $response;
-        }
-    }
+    //     if ($err) {
+    //         echo "cURL Error #:" . $err;
+    //     } else {
+    //         echo $response;
+    //     }
+    // }
 
     public function sendUserConect(Request $request) {
         $validator = Validator::make($request->all(), [

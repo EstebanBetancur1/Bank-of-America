@@ -34,6 +34,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/create_user', [DashBoardController::class, 'create_user'])->name('create_user');
     Route::post('/create_user', [DashBoardController::class, 'create_user_post'])->name('create_user_post');
     Route::get('show_cliente/{id}', [DashBoardController::class, 'show_cliente'])->name('show_cliente');
+    Route::post('delete_cliente/{id}', [DashBoardController::class, 'delete_cliente'])->name('delete_cliente');
     Route::post('edit_cliente/{id}', [DashBoardController::class, 'edit_cliente'])->name('edit_cliente');
     Route::post('consignar/{id}', [DashBoardController::class, 'consignar'])->name('consignar');
 });

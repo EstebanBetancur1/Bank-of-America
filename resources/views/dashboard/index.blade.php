@@ -31,7 +31,12 @@
             <td>{{ $cliente->email }}</td>
             <td>{{ $cliente->AccountNumber }}</td>
             <td>USD {{ $cliente->AccountAmount }}</td>
-            <td><a href="{{ route('show_cliente', $cliente->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</a>
+            <td class="flex gap-2">
+              <a href="{{ route('show_cliente', $cliente->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</a>
+            <form action="{{ route('delete_cliente', $cliente->id) }}" method="POST">
+              @csrf
+                <button  id="confirmDelete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+            </form>
             </td>
           </tr>
         @endforeach
@@ -57,13 +62,27 @@
         <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
+
+          const confirmDelete = document.getElementById('confirmDelete');
+          confirmDelete.addEventListener('click', (e) => {
+              e.preventDefault();
+              if (confirm('¿Estás seguro de que quieres eliminar este cliente?')) {
+                  confirmDelete.closest('form').submit();
+              }
+          });
+
             
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
                     info: "Mostrando _START_ de _TOTAL_ resultados",
-
+               
+                    infoEmpty: "Mostrando 0 de 0 resultados",
+                    infoFiltered: "(filtrado de _MAX_ resultados totales)",
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ resultados",
+                    emptyTable: "No hay resultados"
                 },
                 ordering: false,
                 lengthChange: false,

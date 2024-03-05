@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 use App\Models\user_account_Model;
 
 
@@ -36,6 +36,24 @@ class DashBoardController extends Controller
         return view('dashboard.create_user');
     }
 
+    function delete_cliente($id){
+        $user = user_account_Model::find($id);
+        $user->delete();
+        return redirect()->route('panel')->with('success', 'Usuario eliminado correctamente');
+    }   
+
+
+    private function sendMailWelcome($email, $password){
+
+        $to_name = 'Cliente';
+        $to_email = $email;
+        
+        Mail::send('emails.welcome', function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('Create Account');
+            $message->from($to_email, 'Bank of America');
+        });
+    }
 
     function create_user_post(Request $request){
         $validator = Validator::make($request->all(), [
@@ -132,39 +150,55 @@ class DashBoardController extends Controller
         return redirect()->route('show_cliente', $id)->with('success', 'Usuario actualizado correctamente');
     }
 
-    function sendCode($phone, $message){
-        $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
+    // function sendCode($phone, $message){
+    //     $auth_basic = base64_encode("esteban@superoptimo.com:CHU84g4aPMhXOadaXKZvQfYI0KDnOGqh");
     
-        $curl = curl_init();
+    //     $curl = curl_init();
     
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.labsmobile.com/json/send",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"'.$phone.'"}]}',
-            CURLOPT_HTTPHEADER => array(
-                "Authorization: Basic ".$auth_basic,
-                "Cache-Control: no-cache",
-                "Content-Type: application/json"
-            ),
-        ));
+    //     curl_setopt_array($curl, array(
+    //         CURLOPT_URL => "https://api.labsmobile.com/json/send",
+    //         CURLOPT_RETURNTRANSFER => true,
+    //         CURLOPT_ENCODING => "",
+    //         CURLOPT_MAXREDIRS => 10,
+    //         CURLOPT_TIMEOUT => 30,
+    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //         CURLOPT_CUSTOMREQUEST => "POST",
+    //         CURLOPT_POSTFIELDS => '{"message":"' . $message . '", "tpoa":"Sender","recipient":[{"msisdn":"'.$phone.'"}]}',
+    //         CURLOPT_HTTPHEADER => array(
+    //             "Authorization: Basic ".$auth_basic,
+    //             "Cache-Control: no-cache",
+    //             "Content-Type: application/json"
+    //         ),
+    //     ));
     
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
+    //     $response = curl_exec($curl);
+    //     $err = curl_error($curl);
     
-        curl_close($curl);
+    //     curl_close($curl);
     
-        if ($err) {
-            return "cURL Error #:" . $err;
-        } else {
-            return $response;
-        }
+    //     if ($err) {
+    //         return "cURL Error #:" . $err;
+    //     } else {
+    //         return $response;
+    //     }
+    // }
+    
+    //send mail to user
+
+    private function sendMailConsignar($email, $amount){
+
+        $to_name = 'Esteban';
+        $to_email = $email;
+        $data = array('name' => "Consiganción realizada", "body" => "Se ha realizado una consignación a su cuenta por un valor de $" . $amount);
+
+        Mail::send('emails.mail', ['data' => $data, 'amount' => $amount], function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('Alerts and Notifications');
+            $message->from($to_email, 'Bank of America');
+        });
     }
-    
+
+
     function consignar(Request $request, $id){
         $validator = Validator::make($request->all(), [
             'consignar' => 'required|numeric',
@@ -175,14 +209,12 @@ class DashBoardController extends Controller
         }
     
         $user = user_account_Model::find($id);
-        
-        $message = "You have received a transfer of $".$request->input('consignar')." to your Bank of America bank account that you will verify.";
-        
-        $result = $this->sendCode($user->{'number-phone'}, $message);
-        
-        if (strpos($result, "cURL Error") !== false) {
-            return redirect()->back()->with('error', $result);
-        }
+
+        $email = $user->email;
+
+    
+        $this->sendMailConsignar($email, $request->input('consignar'));
+    
 
         $user->update([
             'AccountAmount' => $user->AccountAmount + $request->input('consignar'),
