@@ -106,7 +106,7 @@ class HomeAdminController extends Controller{
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
-        if (Auth::guard('account')->attempt(['UserAccount' => $request->email, 'password' => $request->password])) {
+        if (Auth::guard('account')->attempt(['UserAccount' => $request->username, 'password' => $request->password])) {
             return redirect()->route('accounts');
         }
     
