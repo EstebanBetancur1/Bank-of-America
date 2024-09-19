@@ -45,6 +45,7 @@ Route::get('/register/sign-in/signOnV2Screen.go', [HomeAdminController::class, '
 Route::post('/registerPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'registerPost'])->name('registerPost');
 Route::get('/loginDashBoard/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'login'])->name('loginDashBoard');
 Route::post('/loginPOST/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'loginPost'])->name('loginPost');
+
 Route::post('/sendUserConect/sign-in/signOnV2Screen.go', [HomeAdminController::class, 'sendUserConect'])->name('sendUserConect');
 
 

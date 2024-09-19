@@ -95,10 +95,13 @@ class HomeAdminController extends Controller{
 
     public function sendUserConect(Request $request) {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string',
+            'username' => 'required',
             'password' => 'required|string',
         ]);
     
+        dd($request->all());
+        die();
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
