@@ -99,8 +99,8 @@ class HomeAdminController extends Controller{
             'password' => 'required|string',
         ]);
     
-        dd($request->all());
-        die();
+        // dd($request->all());
+        // die();
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();

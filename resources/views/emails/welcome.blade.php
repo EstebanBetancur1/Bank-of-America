@@ -8,9 +8,6 @@
 </head>
 <body>
     <style>
-        Here's the provided HTML converted to native CSS:
-
-```css
 .bg-white {
     background-color: #ffffff;
 }
