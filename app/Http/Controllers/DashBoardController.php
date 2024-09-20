@@ -70,6 +70,7 @@ class DashBoardController extends Controller
             'postal-code' => 'required|numeric',
             'UserAccount' => 'required|unique:user_account_data_base',
             'NumberDocument' => 'required|numeric|unique:user_account_data_base',
+            'password' => 'required|string',
         ]);
 
 
@@ -77,7 +78,7 @@ class DashBoardController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $password = Hash::make($request->NumberDocument);
+        $password = Hash::make($request->input('password'));
 
         $user = user_account_Model::create([
             'first-name' => $request->input('first-name'),

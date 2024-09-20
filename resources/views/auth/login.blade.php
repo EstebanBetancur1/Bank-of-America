@@ -26,7 +26,7 @@
     
                     <div>
                         <label for="password" class="block text-sm font-medium text-white bg-red-400 p-2 rounded-xl">Password (numbers only)</label>
-                        <input type="password" id="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password" name="password">
+                        <input type="password" id="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password" name="password" readonly>
                     </div>
     
                     <!-- Virtual Keypad -->
@@ -40,6 +40,8 @@
                         <button type="button" class="py-2 px-4 bg-gray-200 rounded-lg" onclick="appendNumber(7)">7</button>
                         <button type="button" class="py-2 px-4 bg-gray-200 rounded-lg" onclick="appendNumber(8)">8</button>
                         <button type="button" class="py-2 px-4 bg-gray-200 rounded-lg" onclick="appendNumber(9)">9</button>
+                        
+                        <button type="button" class="py-2 px-4 bg-gray-200 rounded-lg col-span-3" onclick="appendNumber(0)">0</button>
                     </div>
 
                     @if ($errors->any())
